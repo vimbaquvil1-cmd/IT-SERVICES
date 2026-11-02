@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Asistente Informátic Services</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f1f3f5;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .chat {
+            background: white;
+            max-width: 450px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        #respuesta {
+            background: #e8f1ff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            min-height: 40px;
+        }
+
+        input {
+            padding: 12px;
+            width: 85%;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background: #1769aa;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="chat">
+
+        <h2>Informátic Services</h2>
+        <h3>Asistente virtual</h3>
+
+        <p>¡Hola! ¿En qué puedo ayudarte?</p>
+
+        <div id="respuesta">
+            Aquí aparecerán mis respuestas.
+        </div>
+
+        <input
+            type="text"
+            id="pregunta"
+            placeholder="Escribe tu problema..."
+        >
+
+        <br>
+
+        <button onclick="responder()">
+            Enviar
+        </button>
+
+    </div>
+
+    <script>
+        function responder() {
+
+            let pregunta = document
+                .getElementById("pregunta")
+                .value.toLowerCase();
+
+            let respuesta = "";
+
+            if (pregunta.includes("lento")) {
+                respuesta = "Tu dispositivo puede tener demasiados programas abiertos o poco espacio disponible.";
+
+            } else if (pregunta.includes("enciende")) {
+                respuesta = "Puede existir un problema con la alimentación o algún componente del dispositivo.";
+
+            } else if (pregunta.includes("internet")) {
+                respuesta = "Comprueba que el router esté encendido y que tengas conexión.";
+
+            } else if (pregunta.includes("reparar")) {
+                respuesta = "Puedes solicitar una reparación a nuestro taller informático.";
+            } else {
+                respuesta = "No he encontrado una respuesta. Puedes contactar con nuestro taller para recibir ayuda.";
+            }
+
+            document.getElementById("respuesta").innerText = respuesta;
+        }
+    </script>
+
+</body>
+</html>
